@@ -37,6 +37,16 @@ class App extends Component {
     })
   }
 
+  deletarMensagem = (id) => {
+    const mensagens = this.state.mensagens.filter(mensagem => {
+      return mensagem.id !== id
+    })
+
+    this.setState({
+      mensagens: mensagens
+    })
+  }
+
   enviarMensagem = (event) => {
     event.preventDefault()
 
@@ -57,7 +67,7 @@ class App extends Component {
   render() {
     return (
     <StyledApp>
-      <ListaDeMensagens />
+      <ListaDeMensagens mensagens={this.state.mensagens} onDeleteMessage={this.deletarMensagem}/>
       <Formulario
         mensagemValue={this.state.mensagemInput}
         usuarioValue={this.state.usuarioInput}
