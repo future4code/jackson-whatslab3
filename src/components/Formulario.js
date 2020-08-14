@@ -22,10 +22,11 @@ const StyledInput = styled.input`
   margin: 0px 5px;
   padding: 0 10px;
 
-  border: none;
+  border: 1px solid transparent;
   border-radius: 20px;
   outline: none;
 
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
   :focus {
     border: 1px solid #128c7e
   }
@@ -44,6 +45,9 @@ const StyledButton = styled.button`
   border: none;
   border-radius: 50%;
   outline: none;
+  margin: 0px 5px;
+
+  box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);;
 `
 
 export class Formulario extends Component {
