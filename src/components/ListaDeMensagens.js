@@ -1,35 +1,28 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-
+import { Mensagem } from './Mensagem'
   
+const List = styled.div`
+  list-style-type: none;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+`;
+
 export class ListaDeMensagens extends Component {
 
   render() {
-    const List = styled.ul`
-    background-color: red;
-    list-style-type: none;
-   `;
-
-    const Mensagens = [
-      {nome: "Eliz", mensagem: "olá"},
-      {nome: "Breno", mensagem: "hi"}
-    ]
     return (
       <List>
-        {Mensagens.map(mensagem =>
+        {this.props.mensagens.map(mensagem =>
           {return(
-            <div>
-              <strong> {mensagem.nome} </strong>
-              <li> {mensagem.mensagem} </li>
-            </div>
+            <Mensagem key={mensagem.id} id={mensagem.id} usuario={mensagem.usuario} conteudo={mensagem.conteudo} onDeleteMensagem={this.props.onDeleteMessage}/>
           )})}
       </List>
-
     )
-    
   }
-  
 }
 
 
